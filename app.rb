@@ -1,8 +1,11 @@
-require('dotenv')
+if ENV["RACK_ENV"] != "production"
+  require('dotenv')
+  Dotenv.load
+end
+
 require('sinatra')
 require('twilio-ruby')
 
-Dotenv.load
 twilio_auth_token = ENV["TWILIO_AUTH_TOKEN"]
 twilio_account_sid = ENV["TWILIO_ACCOUNT_SID"]
 
