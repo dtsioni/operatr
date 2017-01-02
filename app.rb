@@ -17,7 +17,7 @@ twilio_account_sid = ENV["TWILIO_ACCOUNT_SID"]
  # body: 'Hey there!'
 #)
 
-get '/' do
-  'hello world'
+post '/sms' do
+  puts params
 end
 
