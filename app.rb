@@ -18,6 +18,9 @@ twilio_account_sid = ENV["TWILIO_ACCOUNT_SID"]
 #)
 
 post '/sms' do
+  content_type 'text/xml'
   puts params
+  twiml = '<Response><Message>Hello from your Sinatra app!</Message></Response>'
+  halt 200, twiml
 end
 
