@@ -17,3 +17,7 @@ post '/sms' do
   halt 200, twiml
 end
 
+get '/webhook' do
+  params['hub.challenge'] if ENV["FB_VERIFY_TOKEN"] == params['hub.verify_token']
+end
+
