@@ -18,6 +18,13 @@ post '/sms' do
 end
 
 get '/webhook' do
-  params['hub.challenge'] if ENV["FB_VERIFY_TOKEN"] == params['hub.verify_token']
+  status 404
+  return "Beeswax, None Of Yours Inc."
+  halt 404, "Beeswax, None Of Yours Inc."
+  if ENV["FB_VERIFY_TOKEN"] == params['hub.verify_token']
+    halt 200, params['hub.challenge']
+  else
+    halt 404, "Beeswax, None Of Yours Inc."
+  end
 end
 
